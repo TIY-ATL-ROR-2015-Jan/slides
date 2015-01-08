@@ -32,13 +32,13 @@ def prompt_player
 end
 
 def hangman(words)
-  turn_count = argv.empty? ? 6 : argv[0].to_i
-  guessed = set.new
+  turn_count = ARGV.empty? ? 6 : ARGV[0].to_i
+  guessed = Set.new
   answer = words.sample(1)[0]
   greeting # TODO: Do I need an argument?
   until finished?(turn_count, guessed, answer)
     guess = prompt_player
-    guesses.add(guess)
+    guessed.add(guess)
     unless answer.include?(guess)
       turn_count -= 1
     end
