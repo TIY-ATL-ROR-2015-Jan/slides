@@ -11,10 +11,10 @@
    And to show there is a lot shared even by
    very different languages. Fundamentals!
 
-* All programming languages equivalent in power.
-  * Not necessarily ease of getting things done (theory / practice)?
-* First two jobs got hired without knowing the language they used. Fundamentals!
-* A better design for the problem is better in any language. (rare exceptions)
+  * All programming languages equivalent in power.
+    * Not necessarily ease of getting things done (theory / practice)?
+  * First two jobs got hired without knowing the language they used. Fundamentals!
+  * A better design for the problem is better in any language. (rare exceptions)
 
 3. If you start getting down on yourself this weekend, remember ...
 
