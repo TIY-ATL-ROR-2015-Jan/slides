@@ -15,7 +15,7 @@ words = ['angus',
          'marxist',
          'darwinism']
 
-def finished? (turns, guesses, answer)
+def finished?(turns, guesses, answer)
   turns.zero? || answer.chars.all? { |l| guesses.include?(l) }
 end
 
@@ -34,8 +34,7 @@ end
 def hangman(words)
   turn_count = ARGV.empty? ? 6 : ARGV[0].to_i
   guessed = Set.new
-  # Rubocop is too dumb to notice this awful sample usage :-P
-  answer = words.sample(1)[0]
+  answer = words.sample
   greeting # TODO: Do I need an argument?
   until finished?(turn_count, guessed, answer)
     guess = prompt_player
