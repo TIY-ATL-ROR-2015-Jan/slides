@@ -1,6 +1,8 @@
 require 'pry'
 
 class Song
+  # TODO: Cover attr_accessors, attr_reader, attr_writer
+
   def initialize(artist, title, duration)
     @artist = artist
     @title = title

@@ -34,6 +34,7 @@ end
 def hangman(words)
   turn_count = ARGV.empty? ? 6 : ARGV[0].to_i
   guessed = Set.new
+  # Rubocop is too dumb to notice this awful sample usage :-P
   answer = words.sample(1)[0]
   greeting # TODO: Do I need an argument?
   until finished?(turn_count, guessed, answer)
