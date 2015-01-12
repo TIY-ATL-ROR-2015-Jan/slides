@@ -1,6 +1,7 @@
 require 'pry'
 
 def bar(x)
+  # TODO: Let's play with .id / .object_id in here...
   puts 'setting something inside X works here'
   x[0] = 5
   puts "x is a #{defined?(x)}"
