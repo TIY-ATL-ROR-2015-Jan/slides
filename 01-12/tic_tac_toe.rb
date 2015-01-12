@@ -29,32 +29,29 @@ def greeting
   puts "You've never tic'd or tac'd like this before.\n\n"
 end
 
-# TODO: Refactor user input handling?
-def choose_mode
-  puts "\n\nWould you like to play against a human (1) or a computer (2)?\n\n"
+def prompt_user(prompt, validator, error_msg)
+  `clear`
+  puts "\n#{prompt}\n"
   result = gets.chomp
-  until result =~ /^[1-2]$/
-    puts "Please choose option 1 or option 2."
+  until result =~ validator
+    puts "\n#{error_msg}\n"
     result = gets.chomp
   end
-  result.to_i == 1 ? :human : :computer
+  puts
+  result
+end
+
+# TODO: Refactor user input handling?
+def choose_mode
+  mode = prompt_user("Would you like to play against a human (1) of a computer (2)?",
+                     /^[12]$/, "Please choose option 1 (human) or option 2 (computer).")
+  mode.to_i == 1 ? :human : :computer
 end
 
 def choose_character
-  puts "\nPlayer 1: Would you like to play as 'X' or 'O'?\n"
-  result = gets.chomp.upcase
-
-  # NOTE: Try not to manually handle loop termination!
-  # loop do
-  #   break if ['X', 'O'].include?(result)
-  #   puts "You dummy. You can only pick 'X' or 'O'! Pick again."
-  #   result = gets.chomp.upcase
-  # end
-
-  until ['X', 'O'].include?(result)
-    puts "\nYou dummy. You can only pick 'X' or 'O'! Pick again."
-    result = gets.chomp.upcase
-  end
+  result =  prompt_user("Player 1: Would you like to play as 'X' or 'O'?",
+                        /^[xo]$/i, "You dummy. You can only pick 'X' or 'O'! Pick again.")
+  result.upcase!
   puts "\nYou picked #{result}\n"
   result
 end
@@ -100,14 +97,11 @@ def game_over(board)
 end
 
 def take_turn(board, player)
-  puts "\n\nPlayer #{player}: Please choose a space ...\n\n"
   show_board(board)
-  result = gets.chomp
   available = board.select { |x| x.is_a? Fixnum }
-  until result =~ /^[0-9]$/ && available.include?(result.to_i)
-    puts "\nYou have to choose an available square!"
-    result = gets.chomp
-  end
+  result = prompt_user("Player #{player}: Please choose a space ...",
+                       /^[#{available.join}]$/,
+                       "You have to choose an available space!")
   result.to_i - 1
 end
 
