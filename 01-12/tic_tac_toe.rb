@@ -1,8 +1,5 @@
 require 'pry'
 
-# TODO:
-# Support AI player
-
 =begin Brit's bad idea
 def print_row(board, row)
   start = 3 * row
@@ -29,6 +26,14 @@ def greeting
   puts "You've never tic'd or tac'd like this before.\n\n"
 end
 
+# NOTE: You can define choose_mode before prompt_user as long as you don't
+# *call* choose_mode before you define prompt_user.
+def choose_mode
+  mode = prompt_user("Would you like to play against a human (1) of a computer (2)?",
+                     /^[12]$/, "Please choose option 1 (human) or option 2 (computer).")
+  mode.to_i == 1 ? :human : :computer
+end
+
 def prompt_user(prompt, validator, error_msg)
   `clear`
   puts "\n#{prompt}\n"
@@ -39,13 +44,6 @@ def prompt_user(prompt, validator, error_msg)
   end
   puts
   result
-end
-
-# TODO: Refactor user input handling?
-def choose_mode
-  mode = prompt_user("Would you like to play against a human (1) of a computer (2)?",
-                     /^[12]$/, "Please choose option 1 (human) or option 2 (computer).")
-  mode.to_i == 1 ? :human : :computer
 end
 
 def choose_character

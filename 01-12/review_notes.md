@@ -68,3 +68,24 @@ while prompt_user("Do we need to add another student? ('y' or 'n')",
   name, bday = add_student
   students[name] = {:bday => bday}
 end
+
+## What about the sample method?
+## (aka "Brit was doing it wrong")
+# used the wrong version in hangman
+# words.sample -> obj on rubydoc is better
+# was using words.sample(n) -> new_array which is worse
+
+## How does map work?
+## Great question! Let's write one!
+# Note: The following is PSEUDOCODE AND WILL NOT WORK IN YOUR RUBY.
+
+# def my_map(array, $YOUR_BLOCK)
+#   result = []
+#   array.each { |x| result << $YOUR_BLOCK(x) }
+#   result
+# end
+
+# Note: Read => as "ruby will return"
+# toy = ['act', 'bed', 'cat]
+# toy.each { |x| x.reverse } => nil
+# toy.map { |x| x.reverse } => ['tca', 'deb', 'tac']
