@@ -44,7 +44,7 @@ def prompt_user(prompt, validator, error_msg)
   puts "\n#{prompt}\n"
   result = gets.chomp
   until result =~ validator
-    puts error_msg
+    puts "\n#{error_msg}\n"
     result = gets.chomp
   end
   puts
@@ -57,19 +57,14 @@ def add_student
   bday = prompt_user("What is your birthday? (mm-dd-yy)",
                      /^[0-9]{2}-[0-9]{2}-[0-9]{2}/,
                      "Your birthday should be in \"mm-dd-yy\" format.")
-  return name, bday
+  #movie = prompt_user("What is your favorite movie?")
+  return name, bday #, movie
 end
 
 students = {}
 
-puts "Do we need to add another student? ('y' or 'n')"
-another = gets.chomp
-until another =~ /^n$/i
-  if another =~ /^y$/i
-    name, bday = add_student
-    students[name] = {:bday => bday}
-  end
-  name, bday = add_students
-  puts "You have to answer 'y' or 'n'."
-  another = gets.chomp
+while prompt_user("Do we need to add another student? ('y' or 'n')",
+                  /^[yn]$/, "You have to answer 'y' or 'n'.") == 'y'
+  name, bday = add_student
+  students[name] = {:bday => bday}
 end
