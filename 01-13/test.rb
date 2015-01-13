@@ -1,13 +1,9 @@
 require 'pry'
 
-def bar(x)
+def bar(board)
   # TODO: Let's play with .id / .object_id in here...
   puts 'setting something inside X works here'
-  x[0] = 5
-  puts "x is a #{defined?(x)}"
-  # binding.pry
-  x = [4, 3, 2, 1]
-  puts 'but not setting X itself? WAT!'
+  # x[0] = 5
 end
 
 def baz(x)
@@ -23,10 +19,11 @@ end
 def foo
   test = (1..4).to_a
   puts "#{test}"
+  puts "#{test.object_id}"
 
   puts "\nENTERING BAR\n"
-  bar(test)
-  puts "AFTER bar: #{test}"
+  test = bar(test)
+  puts "AFTER bar: #{test.object_id}"
 
   puts "\nENTERING BAZ\n"
   baz(test)
