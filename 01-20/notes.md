@@ -26,7 +26,7 @@
 
 # 09:30 / 09:40 am
 
-## part 3: bundle gem guess.db
+## Part 3: bundle gem guess.db
 
 * bundle gem $gem_name scaffolds out a project for you.
   * It autowrites some code for you so no dots, colons, dashes, etc.
@@ -97,6 +97,8 @@ guess.db should:
 * model_instance.stuff (call it toy)
   * toy.delete ( only kills it on the database side )
   * toy.destroy ( kills it database side, nils the ruby object, runs arbitrary helper code )
+
+# Noon
 
 * So we're in pretty good shape now ...
   * Except no unit tests.
