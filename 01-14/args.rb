@@ -68,14 +68,6 @@ class Deck
   end
 end
 
-def print_name(middle: nil)
-  if middle
-    puts "#{first} #{middle} #{last}"
-  else
-    puts "#{first} #{last}"
-  end
-end
-
 class KeywordCard
   def initialize(opts={})
     puts "The opts hash contains: #{opts}"
@@ -84,12 +76,25 @@ class KeywordCard
   end
 end
 
+def print_name(first, last, middle=nil)
+  if middle
+    puts "#{first} #{middle} #{last}"
+  else
+    puts "#{first} #{last}"
+  end
+end
+
+# print_name('britton', 'butler', 'stanhope')
+# print_name('britton', 'butler')
+
 class NewerKeywordCard
   def initialize rank: nil, suit: nil
     @rank = rank
     @suit = suit
   end
 end
+
+# NewerKeywordCard.new(suit: :hearts, :rank => 8)
 
 # deck = []
 # Card::SUITS.each do |s|

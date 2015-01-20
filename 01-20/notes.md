@@ -38,6 +38,10 @@
 
 ## Part 4: Let's do some camping!
 
+### Databases: sqlite / postgresql / mysql / oracle / mssql
+
+## We're currently using sqlite. Camping stores the db at ~/.camping.db
+
 guess.db should:
 - Let you pick or enter a new player name.
 - Pick an unfinished game or start a new game.
@@ -69,22 +73,30 @@ guess.db should:
   toy = Guessr::Models::Player.find_by_name('brit')
   toy.destroy
 
-* Now let's make sure the user *always* has a name. Validations!
-  * Might as well always be a unique name as well, right?
-  * see: http://guides.rubyonrails.org/active_record_validations.html
+## CRUD - Create / Read /  Update / Delete
 
-* Uh-oh! How the hell are we gonna store guesses / sets?
-  They're not a supported data type!
-  * Use a serializer!
-  * Luckily, ActiveRecord's serialize method seems to work nicely on Sets.
-  * see: http://apidock.com/rails/ActiveRecord/AttributeMethods/Serialization/ClassMethods/serialize
+## Create
+* Full::PathTo::ModelClass.new (or .create which also saves for you)
+  * Pass keyword arguments for all columns
 
-* Now, let's make sure to set finished in the database if the game is over.
-  * Why? Because if we don't, we have to retrieve each thing from the
-  database, create a ruby object from it, and call finished? on that object. Lots of performance overhead for 'show me the finished things'.
-  * Callbacks, USE WITH CAUTION! Hard to figure out 'why is this happening'. Especially in larger codebases.
-  * Also, why make a method private?
-    * for what private means see: http://stackoverflow.com/a/3534581
+## Retrieval
+* Full::PathTo::ModelClass.stuff
+  * count ( get the number of records in the table )
+  * all ( return an enumerator for everything in the table ) USE WITH CAUTION!
+  * where ( return an enumerator for everything matching the clause )
+  * find (return a model instance by id)
+  * find_by_$ ( return a model instance by column )
+  * find_each ( return each model instance in turn )
+
+## Updating ( good old accessors / update_attribute / update_attributes )
+* model_instance.stuff (call it toy)
+  * toy.name = 'foo' ( aka good old accessors, must be followed by toy.save )
+  * toy.update_attributes :name => "foo" (saves for you, any number of attributes)
+
+## Deleting ( delete / destroy )
+* model_instance.stuff (call it toy)
+  * toy.delete ( only kills it on the database side )
+  * toy.destroy ( kills it database side, nils the ruby object, runs arbitrary helper code )
 
 * So we're in pretty good shape now ...
   * Except no unit tests.
