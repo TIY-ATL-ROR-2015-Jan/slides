@@ -1,6 +1,6 @@
 ## Homework!
 
-1. Read the following sections of the [ActiveRecord Associations guide][assoc]:
+## 1. Read the following sections of the [ActiveRecord Associations guide][assoc]:
 
 * 1
 * 2.1, 2.2, 2.3, 2.4, 2.7
@@ -8,7 +8,7 @@
 
 [assoc]: http://guides.rubyonrails.org/association_basics.html
 
-2. Get the stuffs you need.
+## 2. Get the stuffs you need.
 
 * Fork and then clone my [blarg][blarg] repo from today's lecture.
 * Then clone down a copy of [my blog][improvedmeans].
@@ -23,7 +23,7 @@ Okay. We're good to go now.
 [blarg]: https://github.com/TIY-ATL-ROR-2015-Jan.git
 [improvedmeans]: https://github.com/redline6561/improvedmeans.git
 
-3. Import teh data.
+## 3. Import teh data.
 
 First, start [camping][camping]. It will migrate the database to the latest version.
 The command to use is `bundle exec camping -C lib/blarg.rb`.
@@ -43,7 +43,7 @@ via the model: `Blarg::Models::Post`
 [query]: https://guides.rubyonrails.org/active_record_querying.html
 [camping]: https://camping.io/
 
-4. Write some code ya'll!
+## 4. Write some code ya'll!
 
 NOTE: Do not try to add a dedicated table for tags. We will do this in class tomorrow!
 
