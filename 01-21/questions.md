@@ -7,7 +7,7 @@ First, weep softly.
 Second, you should really run `rm ~/.camping.db` if you've tried to import posts already.
 
 Third, you'll want to pull in my bugfix to the import code. To do that, just run:
-`git add remote upstream git://github.com/TIY-ATL-ROR-2015-Jan/blarg.git` and then...
+`git remote add upstream git://github.com/TIY-ATL-ROR-2015-Jan/blarg.git` and then...
 `git pull upstream master`
 
 Hopefully, you haven't made any commits yet because if you have you'll get a merge conflict
