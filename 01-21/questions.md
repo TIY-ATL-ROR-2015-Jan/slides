@@ -62,6 +62,10 @@ BONUS: A method `top_words` that prints the 20 most commonly used words in my bl
 All these methods should primarily query `Blarg::Models::Post`. The top_tags method
 will require some extra work to iterate over the tags array that gets handed back.
 
+Running `binding.pry` followed by `ls ActiveRecord::Base` inside the camping console may give you some ideas.
+That combined with the Rails [query guide][query] are probably your best resource on figuring out what tools
+will be helpful.
+
 HINT: The months method can be written purely using ActiveRecord query magic, no need
       to aggregate things into a hash as we did in class for scoreboard. You would need
       `.each` on the query to pass the final results to a block that `puts` them. :)
