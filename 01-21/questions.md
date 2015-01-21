@@ -29,7 +29,7 @@ and message me in Hipchat angrily.
 * Run bundle in your blarg clone to make sure camping is set up.
   There is no need to "gem install blarg" or anything like that.
 * Update the `BLOG_REPO` constant in lib/blarg.rb to the absolute path of my
-blog clone on *your* system.
+blog clone on *your* system. It **MUST END** in a slash '/'.
 
 Okay. We're good to go now.
 
