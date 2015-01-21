@@ -1,5 +1,18 @@
 ## Homework!
 
+# BRIT DID IT WRONG! AGAIN!
+
+First, weep softly.
+
+Second, you should really run `rm ~/.camping.db` if you've tried to import posts already.
+
+Third, you'll want to pull in my bugfix to the import code. To do that, just run:
+`git add remote upstream git://github.com/TIY-ATL-ROR-2015-Jan/blarg.git` and then...
+`git pull upstream master`
+
+Hopefully, you haven't made any commits yet because if you have you'll get a merge conflict
+and message me in Hipchat angrily.
+
 ## 1. Read the following sections of the [ActiveRecord Associations guide][assoc]:
 
 * 1
@@ -34,7 +47,7 @@ Then, you'll be presented with a Ruby prompt if all goes well. Enter the followi
 * `blog.run`
 
 You'll be prompted about what to do, enter 2 to import posts, then enter 'all' to import all posts,
-at the next screen. After the posts import, you can hit Control-C to break out of the while loop.
+at the next screen.
 
 The data is now imported! :D
 You can query it just as we did in class or as noted in the ActiveRecord [Querying][query] guide
