@@ -47,6 +47,8 @@ via the model: `Blarg::Models::Post`
 
 NOTE: Do not try to add a dedicated table for tags. We will do this in class tomorrow!
 
+Think back to the [scoreboard][score] method from class...
+
 * Add methods for the following to the bottom of lib/blarg.rb.
   * `top_tags`: A method that prints a sorted list of the top 10 most
       used tags in my blog along with a count of how many times they were used.
@@ -54,3 +56,12 @@ NOTE: Do not try to add a dedicated table for tags. We will do this in class tom
       ranked by number of posts.
 
 BONUS: A method `top_words` that prints the 20 most commonly used words in my blog titles.
+
+[score]: https://github.com/TIY-ATL-ROR-2015-Jan/guessr/blob/master/lib/guessr.rb#L164
+
+All these methods should primarily query `Blarg::Models::Post`. The top_tags method
+will require some extra work to iterate over the tags array that gets handed back.
+
+HINT: The months method can be written purely using ActiveRecord query magic, no need
+      to aggregate things into a hash as we did in class for scoreboard. You would need
+      `.each` on the query to pass the final results to a block that `puts` them. :)
