@@ -20,8 +20,8 @@ blog clone on *your* system.
 
 Okay. We're good to go now.
 
-[blarg]: https://github.com/TIY-ATL-ROR-2015-Jan.git
-[improvedmeans]: https://github.com/redline6561/improvedmeans.git
+[blarg]: https://github.com/TIY-ATL-ROR-2015-Jan/blarg
+[improvedmeans]: https://github.com/redline6561/improvedmeans
 
 ## 3. Import teh data.
 
