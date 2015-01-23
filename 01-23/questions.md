@@ -3,6 +3,14 @@
 Build a basic terminal todo app. I've provided most of the application skeleton in [toodoo][toodoo].
 You'll want to fork and clone it and push all work to your fork.
 
+## Git Note!
+
+If you cloned your copy before I finished writing all the TODOs...
+You should run the following commands in your fork:
+
+1. git remote add upstream git://github.com/TIY-ATL-ROR-2015-Jan/toodoo.git
+2. git pull upstream master
+
 ## Installing / Running / Databases / Migrating
 
 First, four important notes:
