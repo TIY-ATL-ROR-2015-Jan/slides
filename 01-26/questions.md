@@ -67,6 +67,7 @@ So you would run it like so: `GITHUB_USER=foo GITHUB_PASS=bar bundle exec ruby l
 
 ## Notes
 
+* See the [Httparty docs](http://johnnunemaker.com/httparty/)
 * See the [Github API docs](https://developer.github.com/v3/)
 * There is a gem for interacting with the Github API called [Octokit](https://github.com/octokit/octokit.rb).
   You should not use it for tonight's assignment, but: Would using it make this easier? How do you think it works?
