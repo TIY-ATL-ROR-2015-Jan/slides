@@ -1,7 +1,6 @@
-In this assignment, we'll investigate a small part of the Twitter
-social graph. Be warned: many of the relevant Twitter API endpoints
-have stringent rate limits, so you'll want to save the relevant data
-to your local machine in order to inspect it.
+In this assignment, we'll investigate a small part of the Github API.
+Be warned, many of the relevant API endpoints have stringent rate limits,
+so you'll want to save the relevant data to your local machine and inspect it.
 
 ## Objectives
 
@@ -11,7 +10,6 @@ After completing this assignment, you should…
 
 * Be comfortable getting JSON data from an API
 * Have more practice with storing and querying data using ActiveRecord models
-* Have some practice thinking about exceptions and error handling
 * Appreciate some implications of storing data locally vs. using external data sources.
 
 ### Performance Objectives
@@ -19,53 +17,56 @@ After completing this assignment, you should…
 After completing this assignment, you be able to effectively use
 
 * `HTTParty`, at least the `get` method
-* Part of the Twitter friend API
+* Part of the Github user API
 * Nested hashes, as returned by Github via the `json` library
 * ActiveRecord saving and querying commands
-* `ARGV` for reading command line arguments
-* Use of `rescue` to handle network failures or API limits
-
-## Details
-
-Ask your instructor for a list of 20 tweeps to creep on.
 
 ### Deliverables
 
 * Fork the cheepcreep repo on the class github page.
   Write your code in lib/cheepcreep.rb.
 
+## Details
+
+In this assignment, you'll fork, clone, and expand on the `cheepcreep`
+repo on the class organization github page. Your final product will pull
+data from the Github API, put it in the database, and then print a sorted
+list of users.
+
 ### Requirements
 
-* Running `bundle exec ruby lib/cheepcreep.rb fetch` will grab and save friends until it hits rate limits.
-* Running `bundle exec ruby lib/cheepcreep.rb analyze` will report on the saved friends.
+When run with `GITHUB_USER=foo GITHUB_PASS=bar bundle exec ruby lib/cheepcreep.rb`
+the script should choose 20 of my (redline6561) users at random. Then it will get
+their data and create matching database records for each one. Finally, it will
+print a list of users sorted by the number of their followers.
 
 ## Normal Mode
 
-We'll focus on users 1) in the provided list, 2) following users in
-the provided list, and 3) followed _by_ users in the given list (their
-"friends" in Twitter-speak).
+1. Add a method that takes a username and returns a list of their followers usernames via the [followers call][followers] we saw in class.
+2. Add a method to return data for a particular github user via the [user call][user_call].
+3. Add a GithubUser model and migration in the Cheepcreep module with the following columns:
+   * login
+   * name
+   * blog
+   * public_repos
+   * followers
+   * following
 
-For each user, save at least their:
-* Name
-* Follower count
-* Friend count
-* Tweet count
+   To see example data, have a look at the example response for the [user API call][user_call].
 
-Obviously, this should require a "Tweeter" model + migration.
+Query the database to print a list of the top users sorted by their follower count.
 
-Fetching users should grab as many as it can, failing gracefully if
-it hits a rate limit.
-
-Running an analysis should print out a list of the top 5 most popular
-(most followed) users in the data set, with links to their profile.
+[user_call]: https://developer.github.com/v3/users/#get-a-single-user
+[followers_call]: https://developer.github.com/v3/users/followers/#list-followers-of-a-user
 
 ## Hard Mode
 
-Ensure that the script does fetch _all_ of the persons of interest,
-if run enough times to get past rate limiting problems.
+Have the script take a command line argument for what to sort by: public repo count, follower count, or following count.
+
+So you would run it like so: `GITHUB_USER=foo GITHUB_PASS=bar bundle exec ruby lib/cheepcreep.rb public_repos`
 
 ## Notes
 
-* See the [Twitter API docs](https://dev.twitter.com/rest/public) - `GET friends/list` and `GET follwers/list` are probably the most important endpoints for this assignment.
-* There is a [Twitter gem](https://github.com/sferik/twitter). Would using it make this easier? How do you think it works?
-* A gem like [Thor](https://github.com/erikhuda/thor) might be helpful in making a robust script with subcommands and help messages.
+* See the [Github API docs](https://developer.github.com/v3/)
+* There is a gem for interacting with the Github API called [Octokit](https://github.com/octokit/octokit.rb).
+  You should not use it for tonight's assignment, but: Would using it make this easier? How do you think it works?

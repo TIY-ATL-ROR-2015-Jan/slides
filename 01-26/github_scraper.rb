@@ -7,7 +7,4 @@ class Github
   def initialize(u)
     @auth = {:username => u}
   end
-
-  def
-  end
 end
