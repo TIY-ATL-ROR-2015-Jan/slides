@@ -4,6 +4,10 @@ It would be best to test your server and API by having some
 documented API calls for a client and having one of your
 friends try to send you a message via the API.
 
+*Note:* We are using plain ActiveRecord migrations in lieu of Camping
+migrations so just place numbered files in the `db/migrate/` directory
+and run `rake db:migrate` with an optional `VERSION` to run your migrations.
+
 *Note:* API testing requires being on the same local network or
 using something like [ngrok](http://ngrok.com) or [localtunnel](http://localtunnel.me/).
 
@@ -27,10 +31,10 @@ using something like [ngrok](http://ngrok.com) or [localtunnel](http://localtunn
 
 ### Deliverables
 
-Get your pairing assignment. Then ...
-
 * Fork the notepasser repo on the class github page.
   Your server code should go in lib/notepasser.rb
+
+* Document your API calls in README.md!
 
 * Any code you write to talk to another students API
   should go in the "clients" directory as `their_github_username.rb`
