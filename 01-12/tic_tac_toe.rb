@@ -1,21 +1,5 @@
 require 'pry'
 
-=begin Brit's bad idea
-def print_row(board, row)
-  start = 3 * row
-  3.times do |col|
-    print "#{board[start + col]} "
-  end
-  puts
-end
-
-def show_board2(board)
-  3.times do |row|
-    print_row(board, row)
-  end
-end
-=end
-
 board = (1..9).to_a
 WINS = [[0, 1, 2], [3, 4, 5], [6, 7, 8],
         [0, 3, 6], [1, 4, 7], [2, 5, 8],
@@ -63,11 +47,6 @@ def show_board(board)
      #{board[6]} | #{board[7]} | #{board[8]}
   \n"
 end
-
-# NOTE: This is a bit too clever, isn't it?
-# def which_player(last_player, player1, player2)
-#   last_player == player1 ? player2 : player1
-# end
 
 def winner?(board)
   WINS.any? do |i, j, k|
