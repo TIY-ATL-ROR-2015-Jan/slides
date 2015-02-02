@@ -23,18 +23,18 @@ should return: `/Users/$YOUR_USERNAME/.rbenv/shims/rails`
 2. Read the [Rails Routing Guide chapters 1 and 2][routing] and modify `config/routes.rb`
    so that `rake routes` generates the following routing table:
 
-```
-        Prefix Verb   URI Pattern                              Controller#Action
-    user_posts GET    /users/:user_id/posts(.:format)          posts#index
-               POST   /users/:user_id/posts(.:format)          posts#create
- new_user_post GET    /users/:user_id/posts/new(.:format)      posts#new
-edit_user_post GET    /users/:user_id/posts/:id/edit(.:format) posts#edit
-     user_post GET    /users/:user_id/posts/:id(.:format)      posts#show
-               PATCH  /users/:user_id/posts/:id(.:format)      posts#update
-               PUT    /users/:user_id/posts/:id(.:format)      posts#update
-               DELETE /users/:user_id/posts/:id(.:format)      posts#destroy
-         users GET    /users(.:format)                         users#index
-```
+   ```
+           Prefix Verb   URI Pattern                              Controller#Action
+       user_posts GET    /users/:user_id/posts(.:format)          posts#index
+                  POST   /users/:user_id/posts(.:format)          posts#create
+    new_user_post GET    /users/:user_id/posts/new(.:format)      posts#new
+   edit_user_post GET    /users/:user_id/posts/:id/edit(.:format) posts#edit
+        user_post GET    /users/:user_id/posts/:id(.:format)      posts#show
+                  PATCH  /users/:user_id/posts/:id(.:format)      posts#update
+                  PUT    /users/:user_id/posts/:id(.:format)      posts#update
+                  DELETE /users/:user_id/posts/:id(.:format)      posts#destroy
+            users GET    /users(.:format)                         users#index
+   ```
 
 3. The web app won't support creating posts with the new routes since
    the user_id doesn't get set on new posts are created. Modify the `create` method
