@@ -15,7 +15,8 @@ such that posts belong to a user and `user.posts` retrieves all of a User's post
 *NOTE*: Make sure that if you run a migration, you commit the updated `db/schema.rb`.
 
 You'll need to manually add some test users and posts to the database from the rails console (`rails c`).
-This is because the forms in the web app **don't** have a field for the user_id.
+This is because there we don't currently have the views and controller methods to create users
+and the forms for Posts *don't* have a field for the user_id.
 
 2. Read the [Rails Routing Guide chapters 1 and 2][routing] and modify `config/routes.rb`
 so that `rake routes` generates the following routing table:
