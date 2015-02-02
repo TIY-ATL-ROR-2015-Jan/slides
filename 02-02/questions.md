@@ -13,15 +13,15 @@ should return: `/Users/$YOUR_USERNAME/.rbenv/shims/rails`
 ## Homework
 
 1. The app has User and Post models. Add an association (and migration if needed)
-such that posts belong to a user and `user.posts` retrieves all of a User's posts.
-*NOTE*: Make sure that if you run a migration, you commit the updated `db/schema.rb`.
+   such that posts belong to a user and `user.posts` retrieves all of a User's posts.
+   *NOTE*: Make sure that if you run a migration, you commit the updated `db/schema.rb`.
 
-You'll need to manually add some test users and posts to the database from the rails console (`rails c`).
-This is because there we don't currently have the views and controller methods to create users
-and the forms for Posts *don't* have a field for the user_id.
+    You'll need to manually add some test users and posts to the database from the rails console (`rails c`).
+    This is because there we don't currently have the views and controller methods to create users
+    and the forms for Posts *don't* have a field for the user_id.
 
 2. Read the [Rails Routing Guide chapters 1 and 2][routing] and modify `config/routes.rb`
-so that `rake routes` generates the following routing table:
+   so that `rake routes` generates the following routing table:
 
 ```
         Prefix Verb   URI Pattern                              Controller#Action
@@ -37,11 +37,11 @@ edit_user_post GET    /users/:user_id/posts/:id/edit(.:format) posts#edit
 ```
 
 3. The web app won't support creating posts with the new routes since
-the user_id doesn't get set on new posts are created. Modify the `create` method
-on the posts controller to also support the user_id.
+   the user_id doesn't get set on new posts are created. Modify the `create` method
+   on the posts controller to also support the user_id.
 
-*HINT*: It has to do with the "parameters" the method is allowed to take. Look at the
-post_params method in the PostsController. What do you think it does?
+    *HINT*: It has to do with the "parameters" the method is allowed to take. Look at the
+    `post_params` method in the PostsController. What do you think it does?
 
 ## BONUS!
 
