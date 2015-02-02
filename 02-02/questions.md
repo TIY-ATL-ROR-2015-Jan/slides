@@ -5,6 +5,8 @@ You should only need `rails c`, `rails s`, and `rails g migrate`.
 ## Installation
 
 Fork and clone the betterblog repo. Then run `bundle` and `rake db:migrate` on your clone.
+You may need to run `rbenv rehash` so that the right rails command is used. `which rails`
+should return: `/Users/$YOUR_USERNAME/.rbenv/shims/rails`
 
 *NOTE*: There is a binding.pry in the PostsController's create method. You probably want to take that out. :)
 
