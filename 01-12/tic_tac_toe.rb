@@ -11,7 +11,65 @@ class TicTacToe
     @board = (1..9).to_a
   end
 
+  def show_board
+    puts "\n
+     #{@board[0]} | #{@board[1]} | #{@board[2]}
+    ------------
+     #{@board[3]} | #{@board[4]} | #{@board[5]}
+    ------------
+     #{@board[6]} | #{@board[7]} | #{@board[8]}
+  \n"
+  end
+
+  def winner?
+    WINS.any? do |i, j, k|
+      # w.map { |x| board[x] }.uniq.length == 1
+      # board[w[0]] == board[w[1]] == board[w[0]]
+
+      if @board[i] == @board[j] && @board[j] == @board[k]
+        return @board[i]
+      end
+    end
+  end
+
+  def finished?
+    winner? || @board.all? { |x| x.is_a? String }
+  end
+
+  def game_over
+    victor = winner?
+    if victor
+      puts "\n\nThe game is over. Player #{victor} won!\n\n"
+    else
+      puts "\n\nThe game is over. It's a draw!\n\n"
+    end
+  end
+
   def run
+  end
+end
+
+class Player
+  def prompt(message, validator, error_message)
+    `clear`
+    puts "\n#{prompt}\n"
+    result = gets.chomp
+    until result =~ validator
+      puts "\n#{error_message}\n"
+      result = gets.chomp
+    end
+    puts
+    result
+  end
+end
+
+class Human < Player
+  def choose_move(board)
+  end
+end
+
+class Computer < Player
+  def choose_move(board)
   end
 end
 
@@ -28,59 +86,12 @@ def choose_mode
   mode.to_i == 1 ? :human : :computer
 end
 
-def prompt_user(prompt, validator, error_msg)
-  `clear`
-  puts "\n#{prompt}\n"
-  result = gets.chomp
-  until result =~ validator
-    puts "\n#{error_msg}\n"
-    result = gets.chomp
-  end
-  puts
-  result
-end
-
 def choose_character
   result =  prompt_user("Player 1: Would you like to play as 'X' or 'O'?",
                         /^[xo]$/i, "You dummy. You can only pick 'X' or 'O'! Pick again.")
   result.upcase!
   puts "\nYou picked #{result}\n"
   result
-end
-
-def show_board(board)
-  puts "\n
-     #{board[0]} | #{board[1]} | #{board[2]}
-    ------------
-     #{board[3]} | #{board[4]} | #{board[5]}
-    ------------
-     #{board[6]} | #{board[7]} | #{board[8]}
-  \n"
-end
-
-def winner?(board)
-  WINS.any? do |i, j, k|
-    # w.map { |x| board[x] }.uniq.length == 1
-    # board[w[0]] == board[w[1]] == board[w[0]]
-    binding.pry
-
-    if board[i] == board[j] && board[j] == board[k]
-      return board[i]
-    end
-  end
-end
-
-def finished?(board)
-  winner?(board) || board.all? { |x| x.is_a? String }
-end
-
-def game_over(board)
-  victor = winner?(board)
-  if victor
-    puts "\n\nThe game is over. Player #{victor} won!\n\n"
-  else
-    puts "\n\nThe game is over. It's a draw!\n\n"
-  end
 end
 
 def take_turn(board, player)
