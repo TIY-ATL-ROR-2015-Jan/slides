@@ -5,7 +5,7 @@ def has_joiner?(word1, word2)
 end
 
 def is_anagram?(word1, word2)
-  word1.chars.sort.join == word2.chars.sort.join
+  word1.chars.sort == word2.chars.sort
 end
 
 def is_funny_word?(word1, word2)
