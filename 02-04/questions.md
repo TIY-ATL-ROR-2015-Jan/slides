@@ -34,8 +34,8 @@ Read the docs on this, you don't need to write your own API wrapper! Just sticki
 
 ## Requirements
 
-1. There should be just one route for your app. `get '/etsy_search', to: 'etsy#show` would be acceptable.
-2. You should always make requests to this controller with query params, like `localhost:3000/etsy_search?q=whiskey`.
+1. There should be just one route for your app. `get '/etsy_search', to: 'etsy#search` would be acceptable.
+2. You should usually make requests to this controller with query params, like `localhost:3000/etsy_search?q=whiskey`.
 3. The controller method should use the Etsy gem to get matching listings from Etsy and then render a view that uses that data.
 4. The view should mirror the Etsy page layout and styling **as closely as possible**, including the header/footer.
 5. Each item should link to its Etsy page.
@@ -59,6 +59,9 @@ Try to implement `hover` events for the items as on the Etsy page.
 ## Deliverables
 
 * Push to Github and comment with a link to your repo
+* Send me an email with a screenshot of your
+  etsy page running at localhost:3000 with a
+  search term of your choosing!
 
 ## Resources
 
