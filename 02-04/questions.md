@@ -41,9 +41,10 @@ Read the docs on this, you don't need to write your own API wrapper! Just sticki
 5. Each item should link to its Etsy page.
 
 **NOTES**:
-* You are free to use whatever search term you like in testing. `whiskey` just has some nice results.
-* Worry about the *structure* and *layout* first, then the fine **styling**.
-* **The Controller side is NOT the important part of this assignment. Get that done first and just focus on the views.**
+    * Do **NOT** use a CSS Framework such as Twitter Bootstrap.
+    * Worry about the *structure* and *layout* first, then the fine **styling**.
+    * You are free to use whatever search term you like in testing. `whiskey` just has some nice results.
+    * **The Controller side is NOT the important part of this assignment. Get that done first and just focus on the views.**
 
 ### BONUS 1
 
@@ -68,5 +69,7 @@ Try to implement `hover` events for the items as on the Etsy page.
 1. [Tim's Lecture Notes](https://gist.github.com/twhitacre/4eca6690470cd20225e8#file-today-md)
 2. [Etsy Gem Documentation][etsy-gem]
 3. [Etsy API Documentation](https://www.etsy.com/developers/documentation/reference/listing)
+4. [Rails Views Guide](http://guides.rubyonrails.org/action_view_overview.html)
+5. [Rails Form Helpers Guide](http://guides.rubyonrails.org/form_helpers.html)
 4. [Etsy JSON Response Example](https://api.etsy.com/v2/listings/active?api_key=h9oq2yf3twf4ziejn10b717i&keywords=whiskey&includes=Images,Shop)
 5. [Etsy Page Example](https://www.etsy.com/search?q=whiskey)
