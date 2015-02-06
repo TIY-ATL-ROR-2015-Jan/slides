@@ -57,6 +57,19 @@ If you do this your controller method shouldn't try to make an API call if no qu
 
 Try to implement `hover` events for the items as on the Etsy page.
 
+## RAILS BONUS
+
+If you finish the etsy page Saturday night and want to do more Rails hacking rather than the "styling bonuses",
+look into deploying the Etsy app to Heroku *OR*
+grab the betterblog app and ...
+
+1. Add some comments!
+   Hmm, blogs aren't very interesting without comments. Let's add comments!
+   * rails g resource Comment post:references body:text
+   * `rake db:migrate`
+   * Add associations
+   * Fix routes to make comments under posts. Also, only need create, delete.
+
 ## Deliverables
 
 * Push to Github and comment with a link to your repo
