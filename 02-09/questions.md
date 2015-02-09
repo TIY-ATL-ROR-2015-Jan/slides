@@ -13,13 +13,13 @@ discussion of Github Flow [here][github-flow] in case you want more background.
 You will be working in pairs for this assignment.
 The teams are as follows:
 
-samuel, evan
-will, nick
-vedika, brian
-mike, alan
-tyler, ian
-rachel, alex
-andrew, dylan
+* samuel, evan
+* will, nick
+* vedika, brian
+* mike, alan
+* tyler, ian
+* rachel, alex
+* andrew, dylan
 
 I don't know what will happen to poor Matt.
 
