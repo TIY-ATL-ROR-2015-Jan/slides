@@ -69,6 +69,11 @@ end
       See the `post_params` and `user_params` methods in the betterblog controllers and read the
       [Strong Params section][strong-params] of the Rails guide for background/context.
 
+   4. In the shouts controller's `index` method, you should not be able to refer to `@user` or `User`
+      because your teammate is the one writing the model and migration for the User model and you don't
+      have it yet! As a result, the index method should just return `@shouts = Shout.all` for the time
+      being. It's okay that every "shouts index page" has the shouts for every user.
+
    Note: The views can be *real* ugly. :)
 
 5. When you're done, [open a pull request][create-pull-request] and ask your partner to review your code.
