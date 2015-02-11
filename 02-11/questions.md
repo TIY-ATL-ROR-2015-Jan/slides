@@ -64,6 +64,10 @@ You will need to:
     see: https://github.com/TIY-ATL-ROR-2015-Jan/betterblog/commit/b80d27635fcdfa5427207b77990cc6dc8536b74d
     see: https://github.com/TIY-ATL-ROR-2015-Jan/betterblog/commit/e0317ae87b9095f1c3299a4ee6b4b6ea5412c2b6
 
+  * For the curious, I made one final commit that shows a different and probably more
+    intuitive way of writing the `follow`, `unfollow`, and `follows?` methods.
+    That commit is here: https://github.com/TIY-ATL-ROR-2015-Jan/betterblog/commit/289b5b4fc568d5d1182f4a958a17950732d2dba0
+
 * Add routes, controller methods, and views as needed to:
   * get a list of a specific user's followers
     Suggested route: `get '/users/:user_id/followers', to: 'users#followers'`
