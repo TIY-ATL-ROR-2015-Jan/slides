@@ -114,7 +114,7 @@ Read the docs for [kaminari][kaminari] and cut a new branch
 off of master that uses it to provide pagination support for
 the `index` methods in all your controllers.
 
-[kaminari]: https://github.com/amatsuda/luminary
+[kaminari]: https://github.com/amatsuda/kaminari
 
 ## Resources
 
