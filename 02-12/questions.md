@@ -137,18 +137,21 @@ have a damn array with 0 for empty, 1 for player 1, and 2
 for player 2.
 
 So I have a `text` column called board on my games table and
-in the model I have `serialize :board` at the top. Now we can
-do `game.update_attribute :board, (1..64).to_a` and it will be
-saved in the database just fine. Remember that when we declare
-`serialize :column` on the model, it converts the objects to a
-string representation (in YAML, by defaut) when storing it and
-converts it back to a Ruby object when we read it.
+in the model I have `serialize :board` at the top. This way we
+can do `game.update_attribute :board, (1..64).to_a` and it will
+be saved in the database just fine.
+
+Remember that when we declare `serialize :column` on the model,
+it converts the objects to a string representation (in YAML,
+by default) when storing it and converts it back to a Ruby
+object when we read it.
 
 #### Board Representation 2 - Flat Array or Multi-Dimensional Array?
 
-As for whether to use a flat array (`[0..42]`) or some kind of
-multidimensional array (`[[0..7], [0..7], ..., [0..7], [0..7]]`) is up
-to you. Obviously it effects what indexes you have to use to access
+Whether to use a flat array (`[0..42]`) or some kind of
+multidimensional array/array of arrays
+(`[[0..7], [0..7], ..., [0..7], [0..7]]`) is up to you.
+Obviously it effects what indexes you have to use to access
 moves, etc, but neither representation is obviously better in my
 opinion.
 
@@ -163,12 +166,17 @@ So all interaction with the game has to be by links and forms,
 to make requests that the controller uses to change state in the
 database.
 
-So we'll say that on the show page for an individual game,
+Let's say that on the show page for an individual game,
 there is some grid (think `etsy_search` but less styling) or
-just a `<table>` to show the board.
+just a `<table>` with rows and columns to show the board.
+I'd recommend using a [partial][partials] for this, so a
+`app/views/games/_board.erb.html` template and
+`render "board", board: @game.board` or similar
+in the show template.
 
 If it's your turn (more on that in a second), there should
 be a button above each column to drop a piece in that column.
+
 Clicking the button sends a request to the server, which
 registers your move and redirects you to the game show page
 or your user page with a notice that your move was made.
@@ -238,6 +246,18 @@ def move
     # return status 403 forbidden, the user can't do that!
   end
 end
+```
+
+Since your Game's show page shouldn't display the 'move' buttons
+above columns if it isn't your turn, you might also consider doing
+something like `@your_turn = @game.can_move?(current_user)` in the
+controller. Then in your show template or board partial you can
+just have a conditional like:
+
+```
+<% if @your_turn %>
+  blah blah blah buttons and things
+<% end %>
 ```
 
 ### 2. How to start/join games
