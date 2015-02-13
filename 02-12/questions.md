@@ -133,7 +133,8 @@ use `serialize`.
 There isn't anything interesting to say about the squares on
 a board. We don't want a "board_squares" table with SQL columns
 named "row" and "column" that hold integers. We just want to
-have a damn array that tracks moves.
+have a damn array with 0 for empty, 1 for player 1, and 2
+for player 2.
 
 So I have a `text` column called board on my games table and
 in the model I have `serialize :board` at the top. Now we can
