@@ -87,6 +87,11 @@ I've defined User, Game, and Player models in my [connect-rails4 repo][c4-rails]
 If you're feeling lost, I'd encourage you to start by forking that as
 it has a reasonable data model.
 
+I'd start by making sure that we could create a new game and
+there is a page that lets us view the game/board. It's okay if
+we can't make moves yet. See the notes on board representation
+and how to start/join games below.
+
 ### Hard Mode
 
 * Add a scoreboard for users that tracks their performance.
@@ -150,6 +155,86 @@ opinion.
 
 Or, how the hell does a game with turns make sense in a web app?
 
+Well, we can't change the data on a web page after it's loaded,
+at least until we learn javascript, and we're not there yet.
+
+So all interaction with the game has to be by links and forms,
+to make requests that the controller uses to change state in the
+database.
+
+So we'll say that on the show page for an individual game,
+there is some grid (think `etsy_search` but less styling) or
+just a `<table>` to show the board.
+
+If it's your turn (more on that in a second), there should
+be a button above each column to drop a piece in that column.
+Clicking the button sends a request to the server, which
+registers your move and redirects you to the game show page
+or your user page with a notice that your move was made.
+
+If it's not your turn, it might be helpful to display a message
+on the page saying that the game is waiting on their opponent
+to make a move.
+
+That's it!
+
+#### Taking Turns 1 - Why a Button?
+
+Remember that queryparams (`?foo=bar`) are usually only used
+with GET requests but we're trying to change a model that already
+exists in the database so our route for making a move should be a
+`PUT` or `PATCH` request.
+
+We need to use a button because we want to send "post data" so
+the server knows which column we clicked on.
+
+You can use a [`button_to`][button_to] on the top of each column
+to send a request to `PUT /game/:id/move` with the column number
+as data. Something *like* the following in your ERB template ...
+
+```<%= button_to [:move, @game], params: { :column => i } %>```
+
+#### Taking Turns 2 - How to know whose turn it is
+
+A user should be required to be authenticated via devise to make
+a move or join a game. If this is the case, then we should have
+a `current_user`. We could define a method on the Game model called
+`can_move?` that takes a user as a parameter and return true
+or false based on whether or not it's their turn. Something like:
+
+If your Game table has `player1_id` and `player2_id` columns
+it might look like this:
+
+```
+def can_move?(user)
+  if self.turn_count.even?
+    user == self.player1
+  else
+    user == self.player2
+end
+```
+
+If you've forked [my repo][c4-rails], it might look more like this:
+
+```
+def can_move?(user)
+  if self.turn_count.even?
+    user == self.users.first
+  else
+    user == self.users.second
+end
+```
+
+Now in the controller, all we have to do in the `move` method
+after looking up the `@game` object is:
+
+```
+if @game.can_move?(current_user)
+  # do move things _and_ bump @game.turn_count, then save @game
+else
+  # return status 403 forbidden, the user can't do that!
+end
+```
 
 ### 2. How to start/join games
 
@@ -174,9 +259,5 @@ through a monstrous headcold-induced coma.
   * Let the user go back to their show page.
   * Allow the user to place a move in any of the board's
     7 columns *if* it is their turn.
-  * You can use a [`button_to`][button_to] on the top of each column
-    to send a request to `PUT /game/:id/move` with the column
-    number as data. Something *like* the following in your ERB template ...
-    ```<%= button_to [:move, @game], params: { :column => i } %>```
 
 [button_to]: http://apidock.com/rails/ActionView/Helpers/UrlHelper/button_to
