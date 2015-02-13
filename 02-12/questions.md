@@ -232,6 +232,7 @@ after looking up the `@game` object is:
 def move
   if @game.can_move?(current_user)
     # do move things _and_ bump @game.turn_count, then save @game
+    # and redirect the user to their homepage or the game show page
   else
     # return status 403 forbidden, the user can't do that!
   end
@@ -239,7 +240,6 @@ end
 ```
 
 ### 2. How to start/join games
-
 
 ### Miscellaneous notes
 
