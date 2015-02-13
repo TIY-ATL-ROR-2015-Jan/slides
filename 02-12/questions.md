@@ -262,6 +262,26 @@ just have a conditional like:
 
 ### 2. How to start/join games
 
+This is a little bit different than the usual "add a form, add new and
+create controller methods" rigmarole. There's really nothing more for
+a user to say than "I want to play a game" so a form is overkill.
+
+Also, a game needs two players so a player can't *quite* create a game
+by themselves. So I would have a `post /games/join, to: 'games#join'`
+route as described above. In the games controller, your join method
+should:
+
+* make sure the user is logged in
+* if there are any games waiting on a second player,
+  update them to have `current_user` as a player
+  and redirect to that game's page
+* otherwise, create a new game with player1 as `current_user`
+  and redirect to the new game's page
+
+Note that you need to set any other attributes you care about
+on the new game as well, such as `:board`, `:turn_count`,
+`:finished` or whatever columns you defined in your schema.
+
 ### Miscellaneous notes
 
 I will try to check in on slack throughout the
