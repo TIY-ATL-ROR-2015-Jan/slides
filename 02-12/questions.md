@@ -229,10 +229,12 @@ Now in the controller, all we have to do in the `move` method
 after looking up the `@game` object is:
 
 ```
-if @game.can_move?(current_user)
-  # do move things _and_ bump @game.turn_count, then save @game
-else
-  # return status 403 forbidden, the user can't do that!
+def move
+  if @game.can_move?(current_user)
+    # do move things _and_ bump @game.turn_count, then save @game
+  else
+    # return status 403 forbidden, the user can't do that!
+  end
 end
 ```
 
