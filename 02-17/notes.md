@@ -66,10 +66,16 @@ Things we'll work on today:
 * Now let's give them something to authenticate for!
   (Add basic game model, tic tac toe-ish.)
 
-Note that render takes a `:status => :status_name` option that
-recognizes the following [codes][status-codes].
+* Finally, it's very important we enable [CORS][cors].
+  CORS (cross origin request sharing) enables frontend
+  to write a javascript client hosted anywhere that can
+  make requests to our backend.
+  There are some notes on this in [devise_token_auth readme][devise-token-cors].
+  There is also a decent StackOverflow [answer][cors-heroku] that has some heroku specifics.
 
-[status-codes]: http://apidock.com/rails/ActionController/Base/render#254-List-of-status-codes-and-their-symbols
+[cors]: http://en.wikipedia.org/wiki/Cross-origin_resource_sharing
+[devise-token-cors]: https://github.com/lynndylanhurley/devise_token_auth#cors
+[cors-heroku]: http://stackoverflow.com/questions/19939207/heroku-rails-4-and-rackcors?answertab=votes#tab-top
 
 ## JSON relevant things
 
@@ -82,6 +88,11 @@ just define `def as_json(opts={})` on the model.
 The `opts={}` is important! It gets called from a
 variety of places and if they pass options and we don't
 have opts defined, that's a 500!
+
+Note that render takes a `:status => :status_name` option that
+recognizes the following [codes][status-codes].
+
+[status-codes]: http://apidock.com/rails/ActionController/Base/render#254-List-of-status-codes-and-their-symbols
 
 ## Testing
 
@@ -130,6 +141,15 @@ Notes about things that are different in prod:
 [postgres]: https://devcenter.heroku.com/articles/heroku-postgres-plans
 [email]: https://devcenter.heroku.com/articles/smtp
 
+## Let's Talk about Workflow with Other Teams
+
+* You're responsible for data. You need to document your APIs!
+
+* It's important to let the other teams have an idea of what
+  data you'll provide soon so they can start working.
+  They can mock up test data if they know something about
+  what your requests and responses look like.
+
 ## Let's Talk about Pull Requests, Fork vs Clone
 
 * A fork is a "remote" on github that has the rep
@@ -146,14 +166,4 @@ It's usually exactly what you want.
 Start your checkers app by getting a repo up under the github organization,
 and deploying it to heroku with support for creating and deleting users via JSON API.
 
-## Scratch notes
-
-* [CORS][cors] (cross origin request sharing) will be
-  an issue once frontend puts their site up somewhere.
-  There are decent notes on this in [devise_token_auth readme][devise-token-cors].
-  There is also a StackOverflow answer with a not perfectly
-  safe but sufficient [answer][cors-heroku].
-
-[cors]: http://en.wikipedia.org/wiki/Cross-origin_resource_sharing
-[devise-token-cors]: https://github.com/lynndylanhurley/devise_token_auth#cors
-[cors-heroku]: http://stackoverflow.com/questions/19939207/heroku-rails-4-and-rackcors?answertab=votes#tab-top
+I'll put up a questions.md but for now: https://gist.github.com/twhitacre/ab69cdb77e9cc0be22ec
