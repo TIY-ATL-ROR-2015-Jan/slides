@@ -150,17 +150,6 @@ Notes about things that are different in prod:
   They can mock up test data if they know something about
   what your requests and responses look like.
 
-## Let's Talk about Pull Requests, Fork vs Clone
-
-* A fork is a "remote" on github that has the rep
-  you forked from as its "origin".
-
-* When you create a pull request on a fork, by
-  default it will be for merge into the original.
-
-This is awesome for purposes of collaboration.
-It's usually exactly what you want.
-
 ## Homework
 
 Start your checkers app by getting a repo up under the github organization,
