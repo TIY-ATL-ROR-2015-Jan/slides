@@ -93,6 +93,10 @@ After completing this assignment, you should have effectively used ...
 
 [clockwork]: https://devcenter.heroku.com/articles/clock-processes-ruby
 [paperclip]: https://devcenter.heroku.com/articles/paperclip-s3
+#bootstrap with bootswatch for rails
+[twitter-bootswatch-rails]:https://github.com/scottvrosenthal/twitter-bootswatch-rails
+#bootstrap themes for web layout
+[bootswatch]: http://bootswatch.com/
 
 ## Questions
 
