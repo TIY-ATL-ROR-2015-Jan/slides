@@ -1,0 +1,13 @@
+httparty
+
+resp = HTTParty.get('https://api.github.com/user/redline6561')
+
+#patch notes
+
+key/word arguments :key => arg as parameters are optional
+
+options ={:body => {:name => "Brian > Brit Hah",
+					:email => Wrigly@dogs.com
+					 }, basic_auth => @auth} 
+self.class.patch('/user', options)
+			
