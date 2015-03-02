@@ -57,8 +57,10 @@ After completing this assignment, you should ...
 #### Hard Mode
 * Inline editing of todos when you double
   click them. It shouldn't need a page refresh.
+* Instead of using Rails views/`render` in your
+  foo.js.erb templates, use [Underscore.js][_js]!
 * Add a button to clear/delete all todos
-  marked complete. The count should stay correct.
+  marked complete. The count should get updated.
 * Todos have a due date. UI toggle for display
   of overdue todos, extra CSS styling.
   Consider using [jQueryUI][jquery-ui] for the
@@ -110,8 +112,10 @@ Wednesday:
 * Specific tools/libraries:
   * [jQuery][jquery]
   * [DOM events][events]
+  * [Underscore][_js]
   * [jQuery UI][jquery-ui]
 
+[_js]: http://underscorejs.com/
 [jquery]: http://api.jquery.com
 [events]: http://www.w3schools.com/jsref/dom_obj_event.asp
 [jquery-ui]: http://jqueryui.com/
