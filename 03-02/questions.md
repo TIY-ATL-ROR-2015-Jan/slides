@@ -101,9 +101,11 @@ Wednesday:
 * General articles:
   * [Working with Javascript in Rails][rails-js]
   * [A tour of Rails Jquery-UJS][ujs-tour]
+  * [Basics of Javascript and jQuery][js-fundamentals]
 
 [rails-js]: http://edgeguides.rubyonrails.org/working_with_javascript_in_rails.html
 [ujs-tour]: https://robots.thoughtbot.com/a-tour-of-rails-jquery-ujs
+[js-fundamentals]: http://jqfundamentals.com/
 
 * Specific tools/libraries:
   * [jQuery][jquery]
