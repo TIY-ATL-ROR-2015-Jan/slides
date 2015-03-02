@@ -59,6 +59,7 @@ After completing this assignment, you should ...
   click them. It shouldn't need a page refresh.
 * Instead of using Rails views/`render` in your
   foo.js.erb templates, use [Underscore.js][_js]!
+  Maybe use `_.each` for enumeration too. :)
 * Add a button to clear/delete all todos
   marked complete. The count should get updated.
 * Todos have a due date. UI toggle for display
@@ -115,7 +116,7 @@ Wednesday:
   * [Underscore][_js]
   * [jQuery UI][jquery-ui]
 
-[_js]: http://underscorejs.com/
+[_js]: http://underscorejs.org/
 [jquery]: http://api.jquery.com
 [events]: http://www.w3schools.com/jsref/dom_obj_event.asp
 [jquery-ui]: http://jqueryui.com/
