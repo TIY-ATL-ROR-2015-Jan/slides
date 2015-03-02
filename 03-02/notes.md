@@ -49,6 +49,8 @@ Okay, we've got the results displaying.
 Let's add some CSS, get audio previews of albums working,
 and continue to get a feel for frontend best practices.
 
+**All of today's code is up on the betterblog repo in the 'songsearch' branch!**
+
 ## The Homework
 
 The homework is (tentatively) a [TodoMVC][toomvc]
