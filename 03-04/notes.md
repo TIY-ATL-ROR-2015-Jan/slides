@@ -83,7 +83,11 @@ A quirky, private (but probably insecure) file-sharing service!
     to go ahead and start the database now. :)
   * You can create databases like `createdb darkroku-dev`.
     Access SQL command prompt with `psql -h localhost -d darkroku-dev`.
-  * Teach rails to use it [like so][postgres-commit].
+  * Teach rails to use it [like so][postgres-commit]. (`config/database.yml`)
+
+
+
+
 
 * We'll even switch to [Puma][puma] since Heroku [likes it][heroku-web].
   * Puma is a faster webserver than the default (webrick).
@@ -110,12 +114,13 @@ A quirky, private (but probably insecure) file-sharing service!
   * Maybe tagline/bio/bday/homepage/twitter/location? *sigh*
     (We could just call this a *profile*.)
 
-1. Install imagemagick with brew so paperclip can resize things.
-   (heroku already has imagemagick installed)
-2. Add [paperclip][paperclip] gem.
-3. Add a Profile model, user `has_one :profile`, profile `belongs_to :user`.
+1. Add a Profile model, user `has_one :profile`, profile `belongs_to :user`.
    See [Choosing between belongs_to and has_one][choosing] and
    [Differences between belongs_to and has_one][differences].
+
+2. Install imagemagick with brew so paperclip can resize things.
+   (heroku already has imagemagick installed)
+3. Add [paperclip][paperclip] gem.
 4. Add forms, views, talk about image_tag a bit perhaps.
    Don't forget to talk about `:multipart => true`.
 
@@ -124,6 +129,9 @@ A quirky, private (but probably insecure) file-sharing service!
 
 [heroku-paperclip]: https://devcenter.heroku.com/articles/paperclip-s3
 [paperclip]: https://github.com/thoughtbot/paperclip
+
+
+
 
 ### Oh nooooes! We need a new storage adapter!
 
